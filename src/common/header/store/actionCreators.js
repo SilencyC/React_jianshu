@@ -4,7 +4,7 @@ import axios from "axios";
 
 export const handleFocus = () => {
   return {
-    type: actionTypes.SEARCH_FOCUS,
+    type: actionTypes.SEARCH_FOCUS
   };
 };
 
@@ -25,7 +25,17 @@ export const handleMouseLeave = () => {
     type: actionTypes.MOUSE_LEAVE,
   };
 };
-
+export const switchNext = (page, totalPage) => {
+  if (page < totalPage) {
+    page = page + 1;
+  } else {
+    page = 1;
+  }
+  return {
+    type: actionTypes.SWITCH_NEXT,
+    page,
+  };
+};
 
 //1、把异步获取数据的逻辑都拆分到actionCreators里面，如果想拆分到actionCreators里面，要求actionCreators 放回的不能是一个普通的js对象了，而是一个函数，如果想actionCreators放回的结果是一个函数必须使用redux-thunk中间件；
 export const getHotSearchList = () => {
@@ -47,5 +57,6 @@ const setHotSearchList = (data) => {
     type: actionTypes.SET_HOT_SEARCH_LIST,
     //2、在获取到数据后，更新store里面的数据时，要注意现在store里面的数据时imutable数据类型，因此在actionCreators里面传递action之前将数据转成imutable数据类型；
     data: fromJS(data),
+    totalPage: Math.ceil(data.length / 10),
   };
 };

@@ -132,6 +132,9 @@ export const HotSearchTitle = styled.div`
 export const HotSearchSwitch = styled.span`
   float: right;
   font-size: 13px;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const HotSearchItem = styled.span`

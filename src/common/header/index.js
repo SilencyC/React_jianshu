@@ -24,9 +24,14 @@ class Header extends Component {
       focused,
       list,
       mouseIn,
+      page,
+      totalPage,
       handleMouseEnter,
       handleMouseLeave,
+      switchNext,
     } = this.props;
+    const newList = list.toJS();
+    const showList = newList.slice((page - 1) * 10, page * 10);
     if (focused || mouseIn) {
       return (
         <HotSearch
@@ -35,10 +40,12 @@ class Header extends Component {
         >
           <HotSearchTitle>
             热门推荐
-            <HotSearchSwitch>换一批</HotSearchSwitch>
+            <HotSearchSwitch onClick={() => switchNext(page, totalPage)}>
+              换一批
+            </HotSearchSwitch>
           </HotSearchTitle>
           {/* 3、展示列表数据时Imutable的map方法与 js的 map 方法一致 */}
-          {list.map((item) => {
+          {showList.map((item) => {
             return <HotSearchItem key={item}>{item}</HotSearchItem>;
           })}
         </HotSearch>
@@ -101,6 +108,8 @@ const mapStateToProps = (state) => {
     mouseIn: state.getIn(["header", "mouseIn"]),
     // mouseIn: state.get("header").get("mouseIn")
     // focused: state.header.focused,
+    page: state.getIn(["header", "page"]),
+    totalPage: state.getIn(["header", "totalPage"]),
   };
 };
 
@@ -118,6 +127,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     handleMouseLeave: () => {
       dispatch(constants.handleMouseLeave());
+    },
+    switchNext: (page, totalPage) => {
+      dispatch(constants.switchNext(page, totalPage));
     },
   };
 };
