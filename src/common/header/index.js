@@ -65,7 +65,7 @@ class Header extends Component {
     }
   };
   render() {
-    const { focused, handleFocus, handleBlur } = this.props;
+    const { focused, handleFocus, handleBlur, list } = this.props;
     return (
       <div>
         <HeaderWrap>
@@ -76,7 +76,7 @@ class Header extends Component {
             <NavSearchWarp>
               <CSSTransition in={focused} timeout={500} classNames="my-search">
                 <NavSearch
-                  onFocus={handleFocus}
+                  onFocus={() => handleFocus(list)}
                   onBlur={handleBlur}
                   className={focused ? "focused" : ""}
                 ></NavSearch>
@@ -125,8 +125,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleFocus: () => {
-      dispatch(constants.getHotSearchList());
+    handleFocus: (list) => {
+      //当size等于0的时候才去请求数据
+      list.size === 0 && dispatch(constants.getHotSearchList());
       dispatch(constants.handleFocus());
     },
     handleBlur: () => {
