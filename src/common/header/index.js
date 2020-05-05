@@ -20,10 +20,19 @@ import {
 
 class Header extends Component {
   hotSearch = () => {
-    const { focused, list } = this.props;
-    if (focused) {
+    const {
+      focused,
+      list,
+      mouseIn,
+      handleMouseEnter,
+      handleMouseLeave,
+    } = this.props;
+    if (focused || mouseIn) {
       return (
-        <HotSearch>
+        <HotSearch
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
           <HotSearchTitle>
             热门推荐
             <HotSearchSwitch>换一批</HotSearchSwitch>
@@ -89,6 +98,8 @@ const mapStateToProps = (state) => {
   return {
     focused: state.getIn(["header", "focused"]),
     list: state.getIn(["header", "list"]),
+    mouseIn: state.getIn(["header", "mouseIn"]),
+    // mouseIn: state.get("header").get("mouseIn")
     // focused: state.header.focused,
   };
 };
@@ -101,6 +112,12 @@ const mapDispatchToProps = (dispatch) => {
     },
     handleBlur: () => {
       dispatch(constants.handleBlur());
+    },
+    handleMouseEnter: () => {
+      dispatch(constants.handleMouseEnter());
+    },
+    handleMouseLeave: () => {
+      dispatch(constants.handleMouseLeave());
     },
   };
 };
