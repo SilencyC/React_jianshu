@@ -135,6 +135,14 @@ export const HotSearchSwitch = styled.span`
   &:hover {
     cursor: pointer;
   }
+  .pine {
+    display: block;
+    float: left;
+    font-size: 13px;
+    margin-right: 4px;
+    transition: all .35s ease-in;
+    /* transform: rotate(0edg) */
+  }
 `;
 
 export const HotSearchItem = styled.span`

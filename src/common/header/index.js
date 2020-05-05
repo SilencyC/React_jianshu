@@ -40,7 +40,17 @@ class Header extends Component {
         >
           <HotSearchTitle>
             热门推荐
-            <HotSearchSwitch onClick={() => switchNext(page, totalPage)}>
+            <HotSearchSwitch
+              onClick={() => switchNext(page, totalPage, this.pineIcon)}
+            >
+              <span
+                ref={(ele) => {
+                  this.pineIcon = ele;
+                }}
+                className="iconfont pine"
+              >
+                &#xe851;
+              </span>
               换一批
             </HotSearchSwitch>
           </HotSearchTitle>
@@ -128,7 +138,14 @@ const mapDispatchToProps = (dispatch) => {
     handleMouseLeave: () => {
       dispatch(constants.handleMouseLeave());
     },
-    switchNext: (page, totalPage) => {
+    switchNext: (page, totalPage, pineIcon) => {
+      let originAngle = pineIcon.style.transform.replace(/[^0-9]/gi, "");
+      if (originAngle) {
+        originAngle = parseInt(originAngle, 10);
+      } else {
+        originAngle = 0;
+      }
+      pineIcon.style.transform = "rotate(" + (originAngle + 360) + "deg)";
       dispatch(constants.switchNext(page, totalPage));
     },
   };
