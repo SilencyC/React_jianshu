@@ -1,10 +1,10 @@
-import { actionTypes } from "./index";
-import { fromJS } from "immutable";
-import axios from "axios";
+import { actionTypes } from './index';
+import { fromJS } from 'immutable';
+import axios from 'axios';
 
 export const handleFocus = () => {
   return {
-    type: actionTypes.SEARCH_FOCUS
+    type: actionTypes.SEARCH_FOCUS,
   };
 };
 
@@ -41,13 +41,13 @@ export const switchNext = (page, totalPage) => {
 export const getHotSearchList = () => {
   return (dispatch) => {
     axios
-      .get("/api/hotSearchList.json")
+      .get('/api/hotSearchList.json')
       .then((res) => {
         const data = res.data;
         dispatch(setHotSearchList(data.data));
       })
       .catch(() => {
-        console.log("error");
+        console.log('error');
       });
   };
 };

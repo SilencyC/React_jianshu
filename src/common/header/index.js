@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { CSSTransition } from "react-transition-group";
-import { connect } from "react-redux";
-import { constants } from "./store";
+import React, { Component } from 'react';
+import { CSSTransition } from 'react-transition-group';
+import { connect } from 'react-redux';
+import { constants } from './store';
 import {
   HeaderWrap,
   Logo,
@@ -16,7 +16,7 @@ import {
   HotSearchSwitch,
   HotSearchItem,
   Button,
-} from "./style";
+} from './style';
 
 class Header extends Component {
   hotSearch = () => {
@@ -78,12 +78,12 @@ class Header extends Component {
                 <NavSearch
                   onFocus={() => handleFocus(list)}
                   onBlur={handleBlur}
-                  className={focused ? "focused" : ""}
+                  className={focused ? 'focused' : ''}
                 ></NavSearch>
               </CSSTransition>
               <div
                 className={
-                  focused ? "iconfont_search focused" : "iconfont_search"
+                  focused ? 'iconfont_search focused' : 'iconfont_search'
                 }
               >
                 <span className="iconfont">&#xe638;</span>
@@ -113,13 +113,13 @@ class Header extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    focused: state.getIn(["header", "focused"]),
-    list: state.getIn(["header", "list"]),
-    mouseIn: state.getIn(["header", "mouseIn"]),
+    focused: state.getIn(['header', 'focused']),
+    list: state.getIn(['header', 'list']),
+    mouseIn: state.getIn(['header', 'mouseIn']),
     // mouseIn: state.get("header").get("mouseIn")
     // focused: state.header.focused,
-    page: state.getIn(["header", "page"]),
-    totalPage: state.getIn(["header", "totalPage"]),
+    page: state.getIn(['header', 'page']),
+    totalPage: state.getIn(['header', 'totalPage']),
   };
 };
 
@@ -140,13 +140,13 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(constants.handleMouseLeave());
     },
     switchNext: (page, totalPage, pineIcon) => {
-      let originAngle = pineIcon.style.transform.replace(/[^0-9]/gi, "");
+      let originAngle = pineIcon.style.transform.replace(/[^0-9]/gi, '');
       if (originAngle) {
         originAngle = parseInt(originAngle, 10);
       } else {
         originAngle = 0;
       }
-      pineIcon.style.transform = "rotate(" + (originAngle + 360) + "deg)";
+      pineIcon.style.transform = 'rotate(' + (originAngle + 360) + 'deg)';
       dispatch(constants.switchNext(page, totalPage));
     },
   };

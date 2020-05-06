@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import nav_logo from "../../statics/nav-logo.png";
-import nav_jsds from "../../statics/nav_jsds.png";
+import styled from 'styled-components';
+import nav_logo from '../../statics/nav-logo.png';
+import nav_jsds from '../../statics/nav_jsds.png';
 
 export const HeaderWrap = styled.div`
   height: 58px;
@@ -10,7 +10,7 @@ export const HeaderWrap = styled.div`
 `;
 
 export const Logo = styled.a.attrs({
-  href: "/",
+  href: '/',
 })`
   display: block;
   width: 100px;
@@ -140,7 +140,7 @@ export const HotSearchSwitch = styled.span`
     float: left;
     font-size: 13px;
     margin-right: 4px;
-    transition: all .35s ease-in;
+    transition: all 0.35s ease-in;
     /* transform: rotate(0edg) */
   }
 `;
@@ -159,7 +159,7 @@ export const HotSearchItem = styled.span`
 `;
 
 export const NavSearch = styled.input.attrs({
-  placeholder: "搜索",
+  placeholder: '搜索',
 })`
   margin-left: 25px;
   width: 240px;
