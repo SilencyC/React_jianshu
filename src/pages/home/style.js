@@ -23,6 +23,20 @@ export const HomeRight = styled.div`
   float: left;
 `;
 
+export const ScrollTop = styled.div`
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #dcdcdc;
+  line-height: 50px;
+  text-align: center;
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
 export const CardWarp = styled.div`
   overflow: hidden;
   margin: 20px 0 10px 0;

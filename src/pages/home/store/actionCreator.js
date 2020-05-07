@@ -35,3 +35,10 @@ export const getMoreListData = (page) => {
     });
   };
 };
+
+export const changeScrollTopShow = (showScroll) => {
+  return {
+    type: actionTypes.CHANGE_SCROLL_TOP_SHOW,
+    showScroll,
+  };
+};

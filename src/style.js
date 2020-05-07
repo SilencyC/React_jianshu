@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   html, body, div, span, applet, object, iframe,
@@ -44,3 +44,7 @@ export const GlobalStyle = createGlobalStyle`
     border-spacing: 0;
   }
   `;
+
+export const BodyWarp = styled.div`
+  padding-top: 60px;
+`;

@@ -3,6 +3,11 @@ import nav_logo from '../../statics/nav-logo.png';
 import nav_jsds from '../../statics/nav_jsds.png';
 
 export const HeaderWrapBox = styled.div`
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  background-color: #fff;
   border-bottom: 1px solid #f0f0f0;
   box-sizing: border-box;
 `;
