@@ -79,6 +79,9 @@ export const ContentItem = styled.div`
   padding: 15px 0 20px;
   border-bottom: 1px solid #f0f0f0;
   min-height: 100px;
+  a {
+    text-decoration: none;
+  }
   .content_pic {
     display: block;
     float: right;

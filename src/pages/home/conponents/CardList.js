@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { CardWarp, CardItem } from '../style';
 
-class CardList extends Component {
+class CardList extends PureComponent {
   render() {
     const { list } = this.props;
     return (

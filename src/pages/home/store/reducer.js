@@ -31,9 +31,8 @@ export default (state = defaultState, actions) => {
     case actionTypes.SET_MORE_CONTENT_LIST:
       return setMoreContentList(state, actions);
     case actionTypes.CHANGE_SCROLL_TOP_SHOW:
-      return state.set('showScroll', actions.showScroll);
+      return state.set('showScroll', fromJS(actions.showScroll));
     default:
-      break;
+      return state;
   }
-  return state;
 };

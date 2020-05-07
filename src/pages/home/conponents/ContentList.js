@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { actionCreator } from '../store';
 import { ContentWarp, ContentItem, Content, LoadContent } from '../style';
 
-class ContentList extends Component {
+class ContentList extends PureComponent {
   render() {
     const { list, getMoreList, page } = this.props;
     return (
@@ -14,7 +15,9 @@ class ContentList extends Component {
               {/* <img className="content_pic" src={item.get('imgUrl')} alt="" /> */}
               {this.getImg(item.get('imgUrl'))}
               <Content className={item.get('imgUrl') ? '' : 'content_item'}>
-                <h3>{item.get('title')}</h3>
+                <Link to="details">
+                  <h3>{item.get('title')}</h3>
+                </Link>
                 <p>{item.get('content')}</p>
               </Content>
             </ContentItem>
@@ -27,7 +30,11 @@ class ContentList extends Component {
 
   getImg = (imgUrl) => {
     if (imgUrl) {
-      return <img className="content_pic" src={imgUrl} alt="" />;
+      return (
+        <Link to="details">
+          <img className="content_pic" src={imgUrl} alt="" />{' '}
+        </Link>
+      );
     } else {
       return null;
     }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import CardList from './conponents/CardList';
 import ContentList from './conponents/ContentList';
@@ -7,7 +7,8 @@ import Writer from './conponents/Writer';
 import { HomeWarp, HomeLeft, HomeRight, ScrollTop } from './style';
 import { actionCreator } from './store';
 
-class Home extends Component {
+//如果用PureComponent建议直接使用immutablejs来管理数据，不然还是用Component来管理数据，避免遇到坑
+class Home extends PureComponent {
   render() {
     const { showScroll } = this.props;
     return (

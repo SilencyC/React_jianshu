@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { constants } from './store';
@@ -72,7 +73,10 @@ class Header extends Component {
       <div>
         <HeaderWrapBox>
           <HeaderWrap>
-            <Logo></Logo>
+            {/* You should not use <Link> outside a <Router> */}
+            <Link to="/">
+              <Logo></Logo>
+            </Link>
             <Nav>
               <NavItem className="left active">首页</NavItem>
               <NavItem className="left download">下载App</NavItem>
