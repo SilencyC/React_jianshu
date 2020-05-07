@@ -9,9 +9,9 @@ class CardList extends Component {
       <CardWarp>
         {list.map((item) => {
           return (
-            <CardItem key={item.id}>
-              <img className="card_pic" src={item.imgUrl} alt="" />
-              {item.name}
+            <CardItem key={item.get('id')}>
+              <img className="card_pic" src={item.get('imgUrl')} alt="" />
+              {item.get('name')}
             </CardItem>
           );
         })}

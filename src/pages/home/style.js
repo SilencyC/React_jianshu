@@ -47,3 +47,33 @@ export const CardItem = styled.div`
     height: 32px;
   }
 `;
+
+export const ContentWarp = styled.div``;
+
+export const ContentItem = styled.div`
+  padding: 10px 0 20px;
+  border-bottom: 1px solid #f0f0f0;
+  .content_pic {
+    display: block;
+    float: right;
+    width: 150px;
+    height: 100px;
+    border-radius: 4px;
+    border: 1px solid #f0f0f0;
+  }
+`;
+
+export const Content = styled.div`
+  width: 458px;
+  h3 {
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  p {
+    margin: 0 0 8px;
+    font-size: 13px;
+    line-height: 24px;
+    color: #999;
+  }
+`;
