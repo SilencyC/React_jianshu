@@ -64,6 +64,7 @@ export const LoadContent = styled.div`
 export const ContentItem = styled.div`
   padding: 15px 0 20px;
   border-bottom: 1px solid #f0f0f0;
+  min-height: 100px;
   .content_pic {
     display: block;
     float: right;
@@ -87,11 +88,12 @@ export const Content = styled.div`
     line-height: 24px;
     color: #999;
   }
+  &.content_item {
+    width: 100%;
+  }
 `;
 
-export const RecommendWarp = styled.div`
-
-`;
+export const RecommendWarp = styled.div``;
 
 export const RecommendItem = styled.div`
   width: 280px;
