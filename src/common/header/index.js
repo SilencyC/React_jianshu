@@ -3,6 +3,7 @@ import { CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { constants } from './store';
 import {
+  HeaderWrapBox,
   HeaderWrap,
   Logo,
   Nav,
@@ -47,7 +48,7 @@ class Header extends Component {
               <span
                 //ref使用React.createRef()或者用回调 (element)=> {this.pineIcon = element}
                 //使用React.createRef()获取DOM元素需要this.pineIcon.current
-                ref={this.pineIcon = React.createRef()}
+                ref={(this.pineIcon = React.createRef())}
                 className="iconfont pine"
               >
                 &#xe851;
@@ -69,44 +70,50 @@ class Header extends Component {
     const { focused, handleFocus, handleBlur, list } = this.props;
     return (
       <div>
-        <HeaderWrap>
-          <Logo></Logo>
-          <Nav>
-            <NavItem className="left active">首页</NavItem>
-            <NavItem className="left download">下载App</NavItem>
-            <NavSearchWarp>
-              <CSSTransition in={focused} timeout={500} classNames="my-search">
-                <NavSearch
-                  onFocus={() => handleFocus(list)}
-                  onBlur={handleBlur}
-                  className={focused ? 'focused' : ''}
-                ></NavSearch>
-              </CSSTransition>
-              <div
-                className={
-                  focused ? 'iconfont_search focused' : 'iconfont_search'
-                }
-              >
-                <span className="iconfont">&#xe638;</span>
-              </div>
-              {this.hotSearch()}
-            </NavSearchWarp>
-          </Nav>
-          <ButtonNav>
-            <NavItem className="right">
-              <i className="iconfont">&#xe636;</i>
-            </NavItem>
-            <NavItem className="right img">
-              <NavImg></NavImg>
-            </NavItem>
-            <NavItem className="right logo_in">登录</NavItem>
-            <Button className="reg">注册</Button>
-            <Button className="write">
-              <i className="iconfont">&#xe6e5;</i>
-              写文章
-            </Button>
-          </ButtonNav>
-        </HeaderWrap>
+        <HeaderWrapBox>
+          <HeaderWrap>
+            <Logo></Logo>
+            <Nav>
+              <NavItem className="left active">首页</NavItem>
+              <NavItem className="left download">下载App</NavItem>
+              <NavSearchWarp>
+                <CSSTransition
+                  in={focused}
+                  timeout={500}
+                  classNames="my-search"
+                >
+                  <NavSearch
+                    onFocus={() => handleFocus(list)}
+                    onBlur={handleBlur}
+                    className={focused ? 'focused' : ''}
+                  ></NavSearch>
+                </CSSTransition>
+                <div
+                  className={
+                    focused ? 'iconfont_search focused' : 'iconfont_search'
+                  }
+                >
+                  <span className="iconfont">&#xe638;</span>
+                </div>
+                {this.hotSearch()}
+              </NavSearchWarp>
+            </Nav>
+            <ButtonNav>
+              <NavItem className="right">
+                <i className="iconfont">&#xe636;</i>
+              </NavItem>
+              <NavItem className="right img">
+                <NavImg></NavImg>
+              </NavItem>
+              <NavItem className="right logo_in">登录</NavItem>
+              <Button className="reg">注册</Button>
+              <Button className="write">
+                <i className="iconfont">&#xe6e5;</i>
+                写文章
+              </Button>
+            </ButtonNav>
+          </HeaderWrap>
+        </HeaderWrapBox>
       </div>
     );
   }

@@ -22,3 +22,28 @@ export const HomeRight = styled.div`
   width: 280px;
   float: left;
 `;
+
+export const CardWarp = styled.div`
+  overflow: hidden;
+  margin: 20px 0 10px 0;
+  margin-left: -18px;
+`;
+
+export const CardItem = styled.div`
+  background-color: #f7f7f7;
+  margin: 0 0 18px 18px;
+  float: left;
+  height: 32px;
+  line-height: 32px;
+  padding-right: 10px;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  font-size: 14px;
+  .card_pic {
+    margin-right: 10px;
+    display: block;
+    float: left;
+    width: 32px;
+    height: 32px;
+  }
+`;

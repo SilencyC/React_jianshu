@@ -2,9 +2,15 @@ import styled from 'styled-components';
 import nav_logo from '../../statics/nav-logo.png';
 import nav_jsds from '../../statics/nav_jsds.png';
 
-export const HeaderWrap = styled.div`
-  height: 58px;
+export const HeaderWrapBox = styled.div`
   border-bottom: 1px solid #f0f0f0;
+  box-sizing: border-box;
+`;
+
+export const HeaderWrap = styled.div`
+  max-width: 1440px;
+  margin: 0 auto;
+  height: 58px;
   box-sizing: border-box;
   position: relative;
 `;
