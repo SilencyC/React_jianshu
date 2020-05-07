@@ -18,9 +18,7 @@ class ContentList extends Component {
             </ContentItem>
           );
         })}
-        <LoadContent>
-          阅读更多
-        </LoadContent>
+        <LoadContent>阅读更多</LoadContent>
       </ContentWarp>
     );
   }

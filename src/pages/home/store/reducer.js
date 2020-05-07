@@ -11,9 +11,9 @@ export default (state = defaultState, actions) => {
   switch (actions.type) {
     case actionTypes.HANDLE_HOME_LIST:
       return state.merge({
-        cardList: fromJS(actions.result.cardList),
-        contentList: fromJS(actions.result.contentList),
-        recommendList: fromJS(actions.result.recommendList)
+        cardList: fromJS(actions.cardList),
+        contentList: fromJS(actions.contentList),
+        recommendList: fromJS(actions.recommendList)
       });
     default:
       break;

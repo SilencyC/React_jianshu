@@ -4,7 +4,9 @@ import axios from 'axios';
 const handleCardList = (result) => {
   return {
     type: actionTypes.HANDLE_HOME_LIST,
-    result,
+    cardList: result.cardList,
+    contentList: result.contentList,
+    recommendList: result.recommendList
   };
 };
 

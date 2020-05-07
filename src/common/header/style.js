@@ -124,6 +124,7 @@ export const HotSearch = styled.div`
   width: 320px;
   padding: 0 20px;
   box-sizing: border-box;
+  background-color: #fff;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 `;
 
