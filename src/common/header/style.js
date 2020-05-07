@@ -141,6 +141,7 @@ export const HotSearchSwitch = styled.span`
     font-size: 13px;
     margin-right: 4px;
     transition: all 0.35s ease-in;
+    transform-origin: center center;
     /* transform: rotate(0edg) */
   }
 `;

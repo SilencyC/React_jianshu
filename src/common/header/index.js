@@ -41,12 +41,13 @@ class Header extends Component {
           <HotSearchTitle>
             热门推荐
             <HotSearchSwitch
-              onClick={() => switchNext(page, totalPage, this.pineIcon)}
+              //用箭头函数传参
+              onClick={() => switchNext(page, totalPage, this.pineIcon.current)}
             >
               <span
-                ref={(ele) => {
-                  this.pineIcon = ele;
-                }}
+                //ref使用React.createRef()或者用回调 (element)=> {this.pineIcon = element}
+                //使用React.createRef()获取DOM元素需要this.pineIcon.current
+                ref={this.pineIcon = React.createRef()}
                 className="iconfont pine"
               >
                 &#xe851;
