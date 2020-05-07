@@ -50,8 +50,19 @@ export const CardItem = styled.div`
 
 export const ContentWarp = styled.div``;
 
+export const LoadContent = styled.div`
+  margin: 30px 0 60px;
+  height: 40px;
+  background-color: #9b9b9b;
+  border-radius: 20px;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  font-size: 15px;
+`;
+
 export const ContentItem = styled.div`
-  padding: 10px 0 20px;
+  padding: 15px 0 20px;
   border-bottom: 1px solid #f0f0f0;
   .content_pic {
     display: block;
@@ -76,4 +87,16 @@ export const Content = styled.div`
     line-height: 24px;
     color: #999;
   }
+`;
+
+export const RecommendWarp = styled.div`
+
+`;
+
+export const RecommendItem = styled.div`
+  width: 280px;
+  height: 50px;
+  background-image: url(${(props) => props.url});
+  background-size: contain;
+  margin-bottom: 6px;
 `;

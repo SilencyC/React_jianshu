@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { ContentWarp, ContentItem, Content } from '../style';
+import { ContentWarp, ContentItem, Content, LoadContent } from '../style';
 
 class ContentList extends Component {
   render() {
@@ -18,6 +18,9 @@ class ContentList extends Component {
             </ContentItem>
           );
         })}
+        <LoadContent>
+          阅读更多
+        </LoadContent>
       </ContentWarp>
     );
   }

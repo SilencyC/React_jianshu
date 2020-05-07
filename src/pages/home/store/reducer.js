@@ -4,6 +4,7 @@ import { fromJS } from 'immutable';
 const defaultState = fromJS({
   cardList: [],
   contentList: [],
+  recommendList: []
 });
 
 export default (state = defaultState, actions) => {
@@ -12,6 +13,7 @@ export default (state = defaultState, actions) => {
       return state.merge({
         cardList: fromJS(actions.result.cardList),
         contentList: fromJS(actions.result.contentList),
+        recommendList: fromJS(actions.result.recommendList)
       });
     default:
       break;
