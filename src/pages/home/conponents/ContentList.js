@@ -13,9 +13,9 @@ class ContentList extends PureComponent {
           return (
             <ContentItem key={index}>
               {/* <img className="content_pic" src={item.get('imgUrl')} alt="" /> */}
-              {this.getImg(item.get('imgUrl'))}
+              {this.getImg(item.get('imgUrl'), item.get('id'))}
               <Content className={item.get('imgUrl') ? '' : 'content_item'}>
-                <Link to="details">
+                <Link to={"/details/" + item.get('id')}>
                   <h3>{item.get('title')}</h3>
                 </Link>
                 <p>{item.get('content')}</p>
@@ -28,10 +28,12 @@ class ContentList extends PureComponent {
     );
   }
 
-  getImg = (imgUrl) => {
+  getImg = (imgUrl, id) => {
     if (imgUrl) {
+      console.log("/details/" + id);
+      
       return (
-        <Link to="details">
+        <Link to={"/details/" + id}>
           <img className="content_pic" src={imgUrl} alt="" />{' '}
         </Link>
       );

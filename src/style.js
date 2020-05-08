@@ -46,5 +46,5 @@ export const GlobalStyle = createGlobalStyle`
   `;
 
 export const BodyWarp = styled.div`
-  padding-top: 60px;
+  padding-top: 58px;
 `;

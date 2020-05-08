@@ -10,6 +10,7 @@ export const HeaderWrapBox = styled.div`
   background-color: #fff;
   border-bottom: 1px solid #f0f0f0;
   box-sizing: border-box;
+  box-shadow: 0 2px 10px rgba(0,0,0,.05);
 `;
 
 export const HeaderWrap = styled.div`
