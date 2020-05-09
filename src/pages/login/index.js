@@ -60,7 +60,6 @@ class Login extends Component {
     }
   }
 
-  
   getUser = (e) => {
     const value = e.target.value;
     this.setState((state) => {
@@ -99,6 +98,7 @@ const mapDisPatchToProps = (dispatch) => {
       dispatch(headerActionCreator.setIsShowHeader(isShowHeader));
     },
     clickLogin: (user, password) => {
+      if (!user || !password) return;
       const loginData = {
         user,
         password,
