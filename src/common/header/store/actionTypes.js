@@ -4,3 +4,4 @@ export const SET_HOT_SEARCH_LIST = 'header/SET_HOT_SEARCH_LIST';
 export const MOUSE_ENTER = 'header/MOUSE_ENTER';
 export const MOUSE_LEAVE = 'header/MOUSE_LEAVE';
 export const SWITCH_NEXT = 'header/SWITCH_NEXT';
+export const SET_IS_SHOW_HEADER = 'header/SET_IS_SHOW_HEADER'

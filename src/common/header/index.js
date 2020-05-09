@@ -68,59 +68,67 @@ class Header extends Component {
     }
   };
   render() {
-    const { focused, handleFocus, handleBlur, list } = this.props;
-    return (
-      <div>
-        <HeaderWrapBox bgc="#fff">
-          <HeaderWrap>
-            {/* You should not use <Link> outside a <Router> */}
-            <Link to="/">
-              <Logo></Logo>
-            </Link>
-            <Nav>
-              <NavItem className="left active">首页</NavItem>
-              <NavItem className="left download">下载App</NavItem>
-              <NavSearchWarp backgroundcolor="#969696">
-                <CSSTransition
-                  in={focused}
-                  timeout={500}
-                  classNames="my-search"
-                >
-                  <NavSearch
-                    onFocus={() => handleFocus(list)}
-                    onBlur={handleBlur}
-                    className={focused ? 'focused' : ''}
-                  ></NavSearch>
-                </CSSTransition>
-                {/* <div
-                  className={
-                    focused ? 'iconfont_search focused' : 'iconfont_search'
-                  }
-                > */}
-                <div className={`iconfont_search ${focused ? ' focused' : ''}`}>
-                  <span className="iconfont">&#xe638;</span>
-                </div>
-                {this.hotSearch()}
-              </NavSearchWarp>
-            </Nav>
-            <ButtonNav>
-              <NavItem className="right">
-                <i className="iconfont">&#xe636;</i>
-              </NavItem>
-              <NavItem className="right img">
-                <NavImg></NavImg>
-              </NavItem>
-              <NavItem className="right logo_in">登录</NavItem>
-              <Button className="reg">注册</Button>
-              <Button className="write">
-                <i className="iconfont">&#xe6e5;</i>
-                写文章
-              </Button>
-            </ButtonNav>
-          </HeaderWrap>
-        </HeaderWrapBox>
-      </div>
-    );
+    const { focused, handleFocus, handleBlur, list, isShowHeader } = this.props;
+    if (isShowHeader) {
+      return (
+        <div>
+          <HeaderWrapBox bgc="#fff">
+            <HeaderWrap>
+              {/* You should not use <Link> outside a <Router> */}
+              <Link to="/">
+                <Logo></Logo>
+              </Link>
+              <Nav>
+                <NavItem className="left active">首页</NavItem>
+                <NavItem className="left download">下载App</NavItem>
+                <NavSearchWarp backgroundcolor="#969696">
+                  <CSSTransition
+                    in={focused}
+                    timeout={500}
+                    classNames="my-search"
+                  >
+                    <NavSearch
+                      onFocus={() => handleFocus(list)}
+                      onBlur={handleBlur}
+                      className={focused ? 'focused' : ''}
+                    ></NavSearch>
+                  </CSSTransition>
+                  {/* <div
+                    className={
+                      focused ? 'iconfont_search focused' : 'iconfont_search'
+                    }
+                  > */}
+                  <div
+                    className={`iconfont_search ${focused ? ' focused' : ''}`}
+                  >
+                    <span className="iconfont">&#xe638;</span>
+                  </div>
+                  {this.hotSearch()}
+                </NavSearchWarp>
+              </Nav>
+              <ButtonNav>
+                <NavItem className="right">
+                  <i className="iconfont">&#xe636;</i>
+                </NavItem>
+                <NavItem className="right img">
+                  <NavImg></NavImg>
+                </NavItem>
+                <Link to="/login">
+                  <NavItem className="right logo_in">登录</NavItem>
+                </Link>
+                <Button className="reg">注册</Button>
+                <Button className="write">
+                  <i className="iconfont">&#xe6e5;</i>
+                  写文章
+                </Button>
+              </ButtonNav>
+            </HeaderWrap>
+          </HeaderWrapBox>
+        </div>
+      );
+    } else {
+      return null;
+    }
   }
 }
 
@@ -133,6 +141,7 @@ const mapStateToProps = (state) => {
     // focused: state.header.focused,
     page: state.getIn(['header', 'page']),
     totalPage: state.getIn(['header', 'totalPage']),
+    isShowHeader: state.getIn(['header', 'isShowHeader']),
   };
 };
 

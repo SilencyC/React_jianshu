@@ -7,6 +7,7 @@ const defaultState = fromJS({
   mouseIn: false,
   page: 1,
   totalPage: 1,
+  isShowHeader: true,
 });
 
 export default (state = defaultState, actions) => {
@@ -33,6 +34,8 @@ export default (state = defaultState, actions) => {
       return state.set('mouseIn', false);
     case actionTypes.SWITCH_NEXT:
       return state.set('page', actions.page);
+    case actionTypes.SET_IS_SHOW_HEADER:
+      return state.set('isShowHeader', actions.isShowHeader);
     default:
       return state;
   }

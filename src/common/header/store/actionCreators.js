@@ -37,6 +37,13 @@ export const switchNext = (page, totalPage) => {
   };
 };
 
+export const setIsShowHeader = (isShowHeader) => {
+  return {
+    type: actionTypes.SET_IS_SHOW_HEADER,
+    isShowHeader
+  }
+}
+
 //1、把异步获取数据的逻辑都拆分到actionCreators里面，如果想拆分到actionCreators里面，要求actionCreators 返回的不能是一个普通的js对象了，而是一个函数，如果想actionCreators放回的结果是一个函数必须使用redux-thunk中间件；
 export const getHotSearchList = () => {
   return (dispatch) => {
