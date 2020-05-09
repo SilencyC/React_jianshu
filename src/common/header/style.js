@@ -7,10 +7,10 @@ export const HeaderWrapBox = styled.div`
   right: 0;
   left: 0;
   z-index: 1030;
-  background-color: #fff;
+  background-color: ${(props) => props.bgc};
   border-bottom: 1px solid #f0f0f0;
   box-sizing: border-box;
-  box-shadow: 0 2px 10px rgba(0,0,0,.05);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 `;
 
 export const HeaderWrap = styled.div`
@@ -109,7 +109,7 @@ export const NavSearchWarp = styled.div`
     border-radius: 50%;
     &.focused {
       width: 30px;
-      background-color: #969696;
+      background-color: ${(props) => props.backgroundcolor};
       .iconfont {
         color: #fff;
       }

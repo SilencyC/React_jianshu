@@ -71,7 +71,7 @@ class Header extends Component {
     const { focused, handleFocus, handleBlur, list } = this.props;
     return (
       <div>
-        <HeaderWrapBox>
+        <HeaderWrapBox bgc="#fff">
           <HeaderWrap>
             {/* You should not use <Link> outside a <Router> */}
             <Link to="/">
@@ -80,7 +80,7 @@ class Header extends Component {
             <Nav>
               <NavItem className="left active">首页</NavItem>
               <NavItem className="left download">下载App</NavItem>
-              <NavSearchWarp>
+              <NavSearchWarp backgroundcolor="#969696">
                 <CSSTransition
                   in={focused}
                   timeout={500}
@@ -92,11 +92,12 @@ class Header extends Component {
                     className={focused ? 'focused' : ''}
                   ></NavSearch>
                 </CSSTransition>
-                <div
+                {/* <div
                   className={
                     focused ? 'iconfont_search focused' : 'iconfont_search'
                   }
-                >
+                > */}
+                <div className={`iconfont_search ${focused ? ' focused' : ''}`}>
                   <span className="iconfont">&#xe638;</span>
                 </div>
                 {this.hotSearch()}
