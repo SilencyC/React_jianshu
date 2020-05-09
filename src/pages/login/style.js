@@ -26,11 +26,16 @@ export const LoginBox = styled.div`
 
 export const LoginContent = styled.div`
   width: 400px;
-  height: 500px;
   background-color: #fff;
   margin-top: 60px;
   padding: 50px 50px 30px;
   box-sizing: border-box;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+`;
+
+export const InputBox = styled.div`
+  margin-bottom: 60px;
 `;
 
 export const Title = styled.div`
@@ -41,4 +46,39 @@ export const Title = styled.div`
   font-size: 18px;
   box-sizing: border-box;
   margin-bottom: 50px;
+  line-height: 1.1;
+`;
+
+export const User = styled.input`
+  width: 298px;
+  height: 50px;
+  padding: 4px 12px 4px 35px;
+  border: none;
+  outline: none;
+  border: 1px solid #c8c8c8;
+  box-sizing: border-box;
+  background-color: hsla(0, 0%, 71%, 0.1);
+  border-radius: 4px 4px 0 0;
+  &::placeholder {
+    color: #c8c8c8;
+  }
+`;
+
+export const Password = styled(User)`
+  border-top: none;
+  border-radius: 0px 0px 4px 4px;
+`;
+
+export const LoginButton = styled.div`
+  height: 43px;
+  background-color: #3194d0;
+  border-radius: 21.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 18px;
+  &:hover {
+    cursor: pointer;
+  }
 `;

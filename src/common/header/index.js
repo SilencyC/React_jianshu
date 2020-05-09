@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { constants } from './store';
+import { actionCreators } from '../../pages/login/store';
 import {
   HeaderWrapBox,
   HeaderWrap,
@@ -68,7 +69,30 @@ class Header extends Component {
     }
   };
   render() {
-    const { focused, handleFocus, handleBlur, list, isShowHeader } = this.props;
+    const {
+      focused,
+      handleFocus,
+      handleBlur,
+      list,
+      isShowHeader,
+      isLogin,
+      logout,
+    } = this.props;
+    const handleLogin = (isLogin) => {
+      if (isLogin) {
+        return (
+          <NavItem onClick={logout} className="right logo_in">
+            退出
+          </NavItem>
+        );
+      } else {
+        return (
+          <Link to="/login">
+            <NavItem className="right logo_in">登录</NavItem>
+          </Link>
+        );
+      }
+    };
     if (isShowHeader) {
       return (
         <div>
@@ -113,9 +137,7 @@ class Header extends Component {
                 <NavItem className="right img">
                   <NavImg></NavImg>
                 </NavItem>
-                <Link to="/login">
-                  <NavItem className="right logo_in">登录</NavItem>
-                </Link>
+                {handleLogin(isLogin)}
                 <Button className="reg">注册</Button>
                 <Button className="write">
                   <i className="iconfont">&#xe6e5;</i>
@@ -142,6 +164,7 @@ const mapStateToProps = (state) => {
     page: state.getIn(['header', 'page']),
     totalPage: state.getIn(['header', 'totalPage']),
     isShowHeader: state.getIn(['header', 'isShowHeader']),
+    isLogin: state.getIn(['login', 'isLogin']),
   };
 };
 
@@ -170,6 +193,9 @@ const mapDispatchToProps = (dispatch) => {
       }
       pineIcon.style.transform = 'rotate(' + (originAngle + 360) + 'deg)';
       dispatch(constants.switchNext(page, totalPage));
+    },
+    logout: () => {
+      dispatch(actionCreators.setIsLogin(false));
     },
   };
 };
