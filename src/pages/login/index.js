@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { constants as headerActionCreator } from '../../common/header/store';
@@ -15,76 +15,51 @@ import {
   LoginButton,
 } from './style';
 
-class Login extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      user: '',
-      password: '',
-    };
-  }
-  render() {
-    const { clickLogin, isLogin } = this.props;
-    const { user, password } = this.state;
-    if (isLogin) {
-      return <Redirect to="/" />;
-    } else {
-      return (
-        <LoginWarp>
-          <Link to="/">
-            <LogoWarp></LogoWarp>
-          </Link>
-          <LoginBox>
-            <LoginContent>
-              <Title>登录</Title>
-              <InputBox>
-                <User
-                  value={this.state.user}
-                  placeholder="手机号码或邮箱"
-                  onChange={this.getUser}
-                ></User>
-                <Password
-                  value={this.state.password}
-                  placeholder="密码"
-                  type="password"
-                  onChange={this.getPassword}
-                ></Password>
-              </InputBox>
-              <LoginButton onClick={() => clickLogin(user, password)}>
-                登录
-              </LoginButton>
-            </LoginContent>
-          </LoginBox>
-        </LoginWarp>
-      );
-    }
-  }
+const Login = (props) => {
+  const [user, setUser] = useState('');
+  const [password, setPassword] = useState('');
+  const { clickLogin, isLogin, changeIsShowHeader } = props;
 
-  getUser = (e) => {
-    const value = e.target.value;
-    this.setState((state) => {
-      return {
-        ...state,
-        user: value,
-      };
-    });
-  };
-  getPassword = (e) => {
-    const value = e.target.value;
-    this.setState((state) => {
-      return {
-        ...state,
-        password: value,
-      };
-    });
-  };
-  componentDidMount() {
-    this.props.changeIsShowHeader(false);
+  useEffect(() => {
+    changeIsShowHeader(false);
+    return () => {
+      changeIsShowHeader(true);
+    };
+  }, [isLogin]);
+
+  if (isLogin) {
+    return <Redirect to="/" />;
+  } else {
+    return (
+      <LoginWarp>
+        <Link to="/">
+          <LogoWarp></LogoWarp>
+        </Link>
+        <LoginBox>
+          <LoginContent>
+            <Title>登录</Title>
+            <InputBox>
+              <User
+                value={user}
+                placeholder="手机号码或邮箱"
+                onChange={(e) => setUser(e.target.value)}
+              ></User>
+              <Password
+                value={password}
+                placeholder="密码"
+                type="password"
+                onChange={(e) => setPassword(e.target.value)}
+              ></Password>
+            </InputBox>
+            <LoginButton onClick={() => clickLogin(user, password)}>
+              登录
+            </LoginButton>
+          </LoginContent>
+        </LoginBox>
+      </LoginWarp>
+    );
   }
-  componentWillUnmount() {
-    this.props.changeIsShowHeader(true);
-  }
-}
+};
 
 const mapStateToProps = (state) => {
   return {

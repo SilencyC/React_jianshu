@@ -1,30 +1,31 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { actionCreators } from './store';
 import { DetailsWarp, DetailsContent, Content } from './style';
 
-class Details extends Component {
-  render() {
-    const { title, content } = this.props;
-    return (
-      <DetailsWarp>
-        <DetailsContent>
-          <Content>
-            <h3>{title}</h3>
-            <div dangerouslySetInnerHTML={{ __html: content }}></div>
-          </Content>
-        </DetailsContent>
-      </DetailsWarp>
-    );
-  }
-  bindEvent = () => {
+const Details = (props) => {
+  const { title, content, getDetails } = props;
+
+  useEffect(() => {
+    bindEvent();
+    getDetails(props.match.params.id);
+  }, []);
+
+  const bindEvent = () => {
     window.scrollTo(0, 0);
   };
-  componentDidMount() {
-    this.bindEvent();
-    this.props.getDetails(this.props.match.params.id);
-  }
-}
+
+  return (
+    <DetailsWarp>
+      <DetailsContent>
+        <Content>
+          <h3>{title}</h3>
+          <div dangerouslySetInnerHTML={{ __html: content }}></div>
+        </Content>
+      </DetailsContent>
+    </DetailsWarp>
+  );
+};
 
 const mapState = (state) => {
   return {
